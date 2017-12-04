@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 813028669}
   - component: {fileID: 813028668}
   - component: {fileID: 813028667}
+  - component: {fileID: 813028672}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -720,6 +721,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &813028672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813028666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518dbcb06c8514f1f95d2602baf36ad1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveCamera: 0
 --- !u!1 &824240738
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +853,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195392500}
   - component: {fileID: 1195392501}
+  - component: {fileID: 1195392503}
   - component: {fileID: 1195392502}
   m_Layer: 0
   m_Name: Cloud Collector
@@ -897,6 +911,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442f9f10641764eb68086e2efcc40198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1195392503
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195392499}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1205364339
 Prefab:
   m_ObjectHideFlags: 0
@@ -953,6 +987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1331046317}
   - component: {fileID: 1331046318}
+  - component: {fileID: 1331046320}
   - component: {fileID: 1331046319}
   m_Layer: 0
   m_Name: Cloud Spawner
@@ -1020,6 +1055,26 @@ MonoBehaviour:
   - {fileID: 620257124}
   - {fileID: 107271597}
   collectables: []
+--- !u!50 &1331046320
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1331046316}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1521710208
 GameObject:
   m_ObjectHideFlags: 0
