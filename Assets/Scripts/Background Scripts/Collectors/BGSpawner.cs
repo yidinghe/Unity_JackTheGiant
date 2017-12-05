@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGSpawner : MonoBehaviour {
+public class BGSpawner : MonoBehaviour
+{
 
 	private GameObject[] backgrounds;
 	private float lastY;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		GetBackgroundsAndSetLastY ();
 	}
 
-	void GetBackgroundsAndSetLastY(){
+	void GetBackgroundsAndSetLastY ()
+	{
 		backgrounds = GameObject.FindGameObjectsWithTag ("Background");
 
 		lastY = backgrounds [0].transform.position.y;
@@ -24,7 +27,8 @@ public class BGSpawner : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D target){
+	void OnTriggerEnter2D (Collider2D target)
+	{
 		if (target.tag == "Background") {
 			if (target.transform.position.y == lastY) {
 				Vector3 temp = target.transform.position;
@@ -39,5 +43,5 @@ public class BGSpawner : MonoBehaviour {
 				}
 			}
 		}
-	}	
+	}
 }

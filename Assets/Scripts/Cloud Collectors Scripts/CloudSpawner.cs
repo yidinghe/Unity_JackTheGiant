@@ -29,7 +29,8 @@ public class CloudSpawner : MonoBehaviour
 		player = GameObject.Find ("Player");
 	}
 
-	void Start(){
+	void Start ()
+	{
 		PositionThePlayer ();
 	}
 
@@ -106,7 +107,8 @@ public class CloudSpawner : MonoBehaviour
 		player.transform.position = t;
 	}
 
-	void OnTriggerEnter2D(Collider2D target) {
+	void OnTriggerEnter2D (Collider2D target)
+	{
 		if (target.tag == "Cloud" || target.tag == "Deadly") {
 			if (target.transform.position.y == lastCloudPositionY) {
 

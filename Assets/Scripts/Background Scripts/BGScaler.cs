@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGScaler : MonoBehaviour {
+public class BGScaler : MonoBehaviour
+{
 
-	void Start () {
+	void Start ()
+	{
 		SpriteRenderer sr = GetComponent<SpriteRenderer> ();
 		Vector3 tempScale = transform.localScale;
 
 		float width = sr.sprite.bounds.size.x;
 
 		float worldHeight = Camera.main.orthographicSize * 2f;
-		float worldWidth = worldHeight /Screen.height * Screen.width;
+		float worldWidth = worldHeight / Screen.height * Screen.width;
 
 		tempScale.x = worldWidth / width;
 

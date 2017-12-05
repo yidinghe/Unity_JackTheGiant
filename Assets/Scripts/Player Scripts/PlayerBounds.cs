@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBounds : MonoBehaviour {
+public class PlayerBounds : MonoBehaviour
+{
 
 	private float minX, maxX;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		SetMinAndMaxX ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (transform.position.x < minX) {
 			Vector3 temp = transform.position;
 			temp.x = minX;

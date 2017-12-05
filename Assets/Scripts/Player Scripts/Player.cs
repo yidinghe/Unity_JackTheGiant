@@ -17,19 +17,7 @@ public class Player : MonoBehaviour
 		anim = GetComponent<Animator> ();
 	}
 
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-
-	}
-
-	void FixedUpdate()
+	void FixedUpdate ()
 	{
 		playerMoveKeyBoard ();
 	}
@@ -65,6 +53,6 @@ public class Player : MonoBehaviour
 			anim.SetBool ("Walk", false);
 		}
 			
-		myBody.AddForce (new Vector2(forceX, 0));
+		myBody.AddForce (new Vector2 (forceX, 0));
 	}
 }
