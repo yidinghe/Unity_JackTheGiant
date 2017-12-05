@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 		anim = GetComponent<Animator> ();
 	}
 
+	//Player control(Rigidbody) should at FixedUpdate()
 	void FixedUpdate ()
 	{
 		playerMoveKeyBoard ();
