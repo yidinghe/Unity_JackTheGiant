@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScore : MonoBehaviour {
+public class PlayerScore : MonoBehaviour
+{
 
 	[SerializeField]
 	private AudioClip coinClip, lifeClip;
@@ -16,22 +17,26 @@ public class PlayerScore : MonoBehaviour {
 	public static int lifeCount;
 	public static int coinCount;
 
-	void Awake(){
+	void Awake ()
+	{
 		cameraScript = Camera.main.GetComponent<CameraScript> ();
 	}
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		previousPosition = transform.position;
 		countScore = true;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		CountScore ();
 	}
 
-	void CountScore(){
+	void CountScore ()
+	{
 		if (countScore) {
 			if (transform.position.y < previousPosition.y) {
 				scoreCount++;
@@ -40,34 +45,35 @@ public class PlayerScore : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D target){
+	void OnTriggerEnter2D (Collider2D target)
+	{
 
 		if (target.tag == "Coin") {
 			coinCount++;
 			scoreCount += 200;
-			AudioSource.PlayClipAtPoint (coinClip,transform.position);
+			AudioSource.PlayClipAtPoint (coinClip, transform.position);
 			target.gameObject.SetActive (false);
 		}
 
 		if (target.tag == "Life") {
 			lifeCount++;
 			scoreCount += 300;
-			AudioSource.PlayClipAtPoint (lifeClip,transform.position);
+			AudioSource.PlayClipAtPoint (lifeClip, transform.position);
 			target.gameObject.SetActive (false);
 		}
 
 		if (target.tag == "Bounds") {
 			cameraScript.moveCamera = false;
 			countScore = false;
-			transform.position = new Vector3 (500,500,0);
+			transform.position = new Vector3 (500, 500, 0);
 			lifeCount--;
 		}
 
 		if (target.tag == "Deadly") {
 			cameraScript.moveCamera = false;
 			countScore = false;
-			transform.position = new Vector3 (500,500,0);
+			transform.position = new Vector3 (500, 500, 0);
 			lifeCount--;
 		}
-	}	
+	}
 }
