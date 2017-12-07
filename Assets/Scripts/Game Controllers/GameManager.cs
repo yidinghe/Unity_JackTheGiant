@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
 	public static GameManager instance;
 
@@ -13,16 +14,23 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public int score, coinScore, lifeScore;
 
-	void OnEnable() {
+	void OnEnable ()
+	{
 		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
 
-	void OnDisable() {
+	void OnDisable ()
+	{
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
-	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+	private void OnSceneLoaded (Scene scene, LoadSceneMode mode)
+	{
+		Debug.Log (scene.name);
 		if (scene.name == "Gameplay") {
+
+			Debug.Log ("Scene Gameplay Loaded.");
+
 			if (gameRestartedAfterPlayerDied) {
 				
 				GamePlayController.instance.SetScore (score);
@@ -42,11 +50,13 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	void Awake(){
+	void Awake ()
+	{
 		MakeSingleton ();
 	}
 
-	void MakeSingleton(){
+	void MakeSingleton ()
+	{
 		if (instance != null) {
 			Destroy (gameObject);
 		} else {
