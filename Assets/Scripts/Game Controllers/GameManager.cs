@@ -24,32 +24,6 @@ public class GameManager : MonoBehaviour
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
-	private void OnSceneLoaded (Scene scene, LoadSceneMode mode)
-	{
-		Debug.Log (scene.name);
-		if (scene.name == "Gameplay") {
-
-			Debug.Log ("Scene Gameplay Loaded.");
-
-			if (gameRestartedAfterPlayerDied) {
-				
-				GamePlayController.instance.SetScore (score);
-				GamePlayController.instance.SetCoinScore (coinScore);
-				GamePlayController.instance.SetLifeScore (lifeScore);
-
-				PlayerScore.scoreCount = score;
-				PlayerScore.coinCount = coinScore;
-				PlayerScore.lifeCount = lifeScore;
-
-			} else if (gameStartedFromMainMenu) {
-				PlayerScore.scoreCount = 0;
-				PlayerScore.coinCount = 0;
-				PlayerScore.lifeCount = 2;
-			}
-				
-		}
-	}
-
 	void Awake ()
 	{
 		MakeSingleton ();
@@ -62,6 +36,56 @@ public class GameManager : MonoBehaviour
 		} else {
 			instance = this;
 			DontDestroyOnLoad (gameObject);
+		}
+	}
+
+	private void OnSceneLoaded (Scene scene, LoadSceneMode mode)
+	{
+		if (scene.name == "Gameplay") {
+
+			if (gameRestartedAfterPlayerDied) {
+				
+				GamePlayController.instance.SetScore (score);
+				GamePlayController.instance.SetCoinScore (coinScore);
+				GamePlayController.instance.SetLifeScore (lifeScore);
+
+				PlayerScore.scoreCount = score;
+				PlayerScore.coinCount = coinScore;
+				PlayerScore.lifeCount = lifeScore;
+
+			} else if (gameStartedFromMainMenu) {
+
+				GamePlayController.instance.SetScore (0);
+				GamePlayController.instance.SetCoinScore (0);
+				GamePlayController.instance.SetLifeScore (2);
+
+				PlayerScore.scoreCount = 0;
+				PlayerScore.coinCount = 0;
+				PlayerScore.lifeCount = 2;
+			}
+				
+		}
+	}
+
+	public void CheckGameStatus (int score, int coinScore, int lifeScore)
+	{
+		if (lifeScore < 0) {
+
+			//TODO save high Score and CoinScore
+
+			gameStartedFromMainMenu = false;
+			gameRestartedAfterPlayerDied = false;
+
+			GamePlayController.instance.GameOverShowPanel (score, coinScore);
+		} else {
+			this.score = score;
+			this.coinScore = coinScore;
+			this.lifeScore = lifeScore;
+
+			gameStartedFromMainMenu = false;
+			gameRestartedAfterPlayerDied = true;
+
+			GamePlayController.instance.PlayerDiedRestartGame ();
 		}
 	}
 }
