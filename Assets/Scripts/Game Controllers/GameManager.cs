@@ -29,6 +29,30 @@ public class GameManager : MonoBehaviour
 		MakeSingleton ();
 	}
 
+	void Start(){
+		InitializeVariables ();
+	}
+
+	void InitializeVariables(){
+		if (!GamePreferences.IsGameInited ()) {
+
+			GamePreferences.SetEasyDifficultyState (0);
+			GamePreferences.SetEasyDifficultyHighScore (0);
+			GamePreferences.SetEasyDifficultyCoinScore (0);
+
+			GamePreferences.SetMediumDifficultyState (1);
+			GamePreferences.SetMediumDifficultyHighScore (0);
+			GamePreferences.SetMediumDifficultyCoinScore (0);
+
+			GamePreferences.SetHardDifficultyState (0);
+			GamePreferences.SetHardDifficultyHighScore (0);
+			GamePreferences.SetHardDifficultyCoinScore (0);
+
+			GamePreferences.SetGameInit ();
+
+		}
+	}
+
 	void MakeSingleton ()
 	{
 		if (instance != null) {
@@ -71,8 +95,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (lifeScore < 0) {
 
-			//TODO save high Score and CoinScore
-
+			SetScoreBasedOnDifficulty (score, coinScore);
 			gameStartedFromMainMenu = false;
 			gameRestartedAfterPlayerDied = false;
 
@@ -87,5 +110,24 @@ public class GameManager : MonoBehaviour
 
 			GamePlayController.instance.PlayerDiedRestartGame ();
 		}
+	}
+
+	void SetScoreBasedOnDifficulty(int score, int coinScore){
+
+		if (GamePreferences.GetEasyDifficultyState () == 1) {
+			GamePreferences.SetEasyDifficultyHighScore(score);
+			GamePreferences.SetEasyDifficultyCoinScore(coinScore);
+		}
+
+		if (GamePreferences.GetMediumDifficultyState () == 1) {
+			GamePreferences.SetMediumDifficultyHighScore(score);
+			GamePreferences.SetMediumDifficultyCoinScore(coinScore);
+		}
+
+		if (GamePreferences.GetHardDifficultyState () == 1) {
+			GamePreferences.SetHardDifficultyHighScore(score);
+			GamePreferences.SetHardDifficultyCoinScore(coinScore);
+		}
+
 	}
 }

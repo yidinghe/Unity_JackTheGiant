@@ -19,12 +19,14 @@ public static class GamePreferences
 
 	private static string IsMusicOn = "IsMusicOn";
 
+	private static string IsGameInit = "IsGameInit";
+
 	public static void SetEasyDifficultyState (int state)
 	{
 		PlayerPrefs.SetInt (EasyDifficulty, state);
 	}
 
-	public static int getEasyDifficultyState ()
+	public static int GetEasyDifficultyState ()
 	{
 		return PlayerPrefs.GetInt (EasyDifficulty);
 	}
@@ -34,7 +36,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (MediumDifficulty, state);
 	}
 
-	public static int getMediumDifficultyState ()
+	public static int GetMediumDifficultyState ()
 	{
 		return PlayerPrefs.GetInt (MediumDifficulty);
 	}
@@ -44,7 +46,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (HardDifficulty, state);
 	}
 
-	public static int getHardDifficultyState ()
+	public static int GetHardDifficultyState ()
 	{
 		return PlayerPrefs.GetInt (HardDifficulty);
 	}
@@ -54,7 +56,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (EasyDifficultyHighScore, highScore);
 	}
 
-	public static int getEasyDifficultyHighScore ()
+	public static int GetEasyDifficultyHighScore ()
 	{
 		return PlayerPrefs.GetInt (EasyDifficultyHighScore);
 	}
@@ -64,7 +66,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (MediumDifficultyHighScore, highScore);
 	}
 
-	public static int getMediumDifficultyHighScore ()
+	public static int GetMediumDifficultyHighScore ()
 	{
 		return PlayerPrefs.GetInt (MediumDifficultyHighScore);
 	}
@@ -74,7 +76,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (HardDifficultyHighScore, highScore);
 	}
 
-	public static int getHardDifficultyHighScore ()
+	public static int GetHardDifficultyHighScore ()
 	{
 		return PlayerPrefs.GetInt (HardDifficultyHighScore);
 	}
@@ -84,7 +86,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (EasyDifficultyCoinScore, highScore);
 	}
 
-	public static int getEasyDifficultyCoinScore ()
+	public static int GetEasyDifficultyCoinScore ()
 	{
 		return PlayerPrefs.GetInt (EasyDifficultyCoinScore);
 	}
@@ -94,7 +96,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (MediumDifficultyCoinScore, highScore);
 	}
 
-	public static int getMediumDifficultyCoinScore ()
+	public static int GetMediumDifficultyCoinScore ()
 	{
 		return PlayerPrefs.GetInt (MediumDifficultyCoinScore);
 	}
@@ -104,7 +106,7 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (HardDifficultyCoinScore, highScore);
 	}
 
-	public static int getHardDifficultyCoinScore ()
+	public static int GetHardDifficultyCoinScore ()
 	{
 		return PlayerPrefs.GetInt (HardDifficultyCoinScore);
 	}
@@ -114,8 +116,16 @@ public static class GamePreferences
 		PlayerPrefs.SetInt (IsMusicOn, state);
 	}
 
-	public static int getMusicState ()
+	public static int GetMusicState ()
 	{
 		return PlayerPrefs.GetInt (IsMusicOn);
+	}
+
+	public static bool IsGameInited(){
+		return PlayerPrefs.HasKey (IsGameInit);
+	}
+
+	public static void SetGameInit(){
+		PlayerPrefs.SetInt (IsGameInit, 1);
 	}
 }
