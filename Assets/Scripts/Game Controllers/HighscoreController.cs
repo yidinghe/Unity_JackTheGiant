@@ -4,38 +4,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class HighscoreController : MonoBehaviour {
+public class HighscoreController : MonoBehaviour
+{
 
 	[SerializeField]
 	private Text scoreText, coinText;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		SetScoreBasedOnDifficulty ();
 	}
 
-	void SetScore(int score, int coinScore){
+	void SetScore (int score, int coinScore)
+	{
 		scoreText.text = score.ToString ();
 		coinText.text = coinScore.ToString ();
 	}
 
-	void SetScoreBasedOnDifficulty(){
+	void SetScoreBasedOnDifficulty ()
+	{
 		
 		if (GamePreferences.GetEasyDifficultyState () == 1) {
-			SetScore (GamePreferences.GetEasyDifficultyHighScore(), GamePreferences.GetEasyDifficultyCoinScore());
+			SetScore (GamePreferences.GetEasyDifficultyHighScore (), GamePreferences.GetEasyDifficultyCoinScore ());
 		}
 
 		if (GamePreferences.GetMediumDifficultyState () == 1) {
-			SetScore (GamePreferences.GetMediumDifficultyHighScore(), GamePreferences.GetMediumDifficultyCoinScore());
+			SetScore (GamePreferences.GetMediumDifficultyHighScore (), GamePreferences.GetMediumDifficultyCoinScore ());
 		}
 
 		if (GamePreferences.GetHardDifficultyState () == 1) {
-			SetScore (GamePreferences.GetHardDifficultyHighScore(), GamePreferences.GetHardDifficultyCoinScore());
+			SetScore (GamePreferences.GetHardDifficultyHighScore (), GamePreferences.GetHardDifficultyCoinScore ());
 		}
 
 	}
 
-	public void GoBackToMainMenu(){
+	public void GoBackToMainMenu ()
+	{
 		SceneManager.LoadScene ("MainMenu");
 	}
 }

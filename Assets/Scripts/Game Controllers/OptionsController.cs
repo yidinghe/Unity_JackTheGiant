@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OptionsController : MonoBehaviour {
+public class OptionsController : MonoBehaviour
+{
 
 	[SerializeField]
 	private GameObject easySign, mediumSign, hardSign;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		SetTheDifficulty ();
 	}
 
-	void SetDifficultyUI(string difficulty){
-		switch(difficulty){
+	void SetDifficultyUI (string difficulty)
+	{
+		switch (difficulty) {
 		case "easy":
 			easySign.SetActive (true);
 			mediumSign.SetActive (false);
@@ -36,7 +39,8 @@ public class OptionsController : MonoBehaviour {
 		}
 	}
 
-	void SetTheDifficulty(){
+	void SetTheDifficulty ()
+	{
 		
 		if (GamePreferences.GetEasyDifficultyState () == 1) {
 			SetDifficultyUI ("easy");
@@ -51,28 +55,32 @@ public class OptionsController : MonoBehaviour {
 		}
 	}
 
-	public void EasyDifficulty(){
+	public void EasyDifficulty ()
+	{
 		GamePreferences.SetEasyDifficultyState (1);
 		GamePreferences.SetMediumDifficultyState (0);
 		GamePreferences.SetHardDifficultyState (0);
 		SetDifficultyUI ("easy");
 	}
 
-	public void MediumDifficulty(){
+	public void MediumDifficulty ()
+	{
 		GamePreferences.SetEasyDifficultyState (0);
 		GamePreferences.SetMediumDifficultyState (1);
 		GamePreferences.SetHardDifficultyState (0);
 		SetDifficultyUI ("medium");
 	}
 
-	public void HardDifficulty(){
+	public void HardDifficulty ()
+	{
 		GamePreferences.SetEasyDifficultyState (0);
 		GamePreferences.SetMediumDifficultyState (0);
 		GamePreferences.SetHardDifficultyState (1);
 		SetDifficultyUI ("hard");
 	}
-		
-	public void GoBackToMainMenu(){
+
+	public void GoBackToMainMenu ()
+	{
 		SceneManager.LoadScene ("MainMenu");
 	}
 

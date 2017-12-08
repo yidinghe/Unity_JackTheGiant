@@ -29,11 +29,13 @@ public class GameManager : MonoBehaviour
 		MakeSingleton ();
 	}
 
-	void Start(){
+	void Start ()
+	{
 		InitializeVariables ();
 	}
 
-	void InitializeVariables(){
+	void InitializeVariables ()
+	{
 		if (!GamePreferences.IsGameInited ()) {
 
 			GamePreferences.SetEasyDifficultyState (0);
@@ -112,21 +114,52 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	void SetScoreBasedOnDifficulty(int score, int coinScore){
+	void SetScoreBasedOnDifficulty (int score, int coinScore)
+	{
 
 		if (GamePreferences.GetEasyDifficultyState () == 1) {
-			GamePreferences.SetEasyDifficultyHighScore(score);
-			GamePreferences.SetEasyDifficultyCoinScore(coinScore);
+
+			int savedHighScore = GamePreferences.GetEasyDifficultyHighScore ();
+			int savedCoinScore = GamePreferences.GetEasyDifficultyCoinScore ();
+
+			if (score > savedHighScore) {
+				GamePreferences.SetEasyDifficultyHighScore (score);
+			}
+
+			if (coinScore > savedCoinScore) {
+				GamePreferences.SetEasyDifficultyCoinScore (coinScore);
+			}
+
 		}
 
 		if (GamePreferences.GetMediumDifficultyState () == 1) {
-			GamePreferences.SetMediumDifficultyHighScore(score);
-			GamePreferences.SetMediumDifficultyCoinScore(coinScore);
+
+			int savedHighScore = GamePreferences.GetMediumDifficultyHighScore ();
+			int savedCoinScore = GamePreferences.GetMediumDifficultyCoinScore ();
+
+			if (score > savedHighScore) {
+				GamePreferences.SetMediumDifficultyHighScore (score);
+			}
+
+			if (coinScore > savedCoinScore) {
+				GamePreferences.SetMediumDifficultyCoinScore (coinScore);
+			}
+				
 		}
 
 		if (GamePreferences.GetHardDifficultyState () == 1) {
-			GamePreferences.SetHardDifficultyHighScore(score);
-			GamePreferences.SetHardDifficultyCoinScore(coinScore);
+
+			int savedHighScore = GamePreferences.GetHardDifficultyHighScore ();
+			int savedCoinScore = GamePreferences.GetHardDifficultyCoinScore ();
+
+			if (score > savedHighScore) {
+				GamePreferences.SetHardDifficultyHighScore (score);
+			}
+
+			if (coinScore > savedCoinScore) {
+				GamePreferences.SetHardDifficultyCoinScore (coinScore);
+			}
+
 		}
 
 	}

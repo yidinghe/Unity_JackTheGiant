@@ -121,11 +121,13 @@ public static class GamePreferences
 		return PlayerPrefs.GetInt (IsMusicOn);
 	}
 
-	public static bool IsGameInited(){
+	public static bool IsGameInited ()
+	{
 		return PlayerPrefs.HasKey (IsGameInit);
 	}
 
-	public static void SetGameInit(){
+	public static void SetGameInit ()
+	{
 		PlayerPrefs.SetInt (IsGameInit, 1);
 	}
 }
