@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HighscoreController : MonoBehaviour
@@ -41,6 +40,6 @@ public class HighscoreController : MonoBehaviour
 
 	public void GoBackToMainMenu ()
 	{
-		SceneManager.LoadScene ("MainMenu");
+		SceneFader.instance.LoadLevel ("MainMenu");
 	}
 }
