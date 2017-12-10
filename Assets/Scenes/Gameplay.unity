@@ -489,37 +489,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 114064964567985648, guid: c1fbe1e66f1b44a3db382f3a3596cf07,
+    - target: {fileID: 114634462787999526, guid: c1fbe1e66f1b44a3db382f3a3596cf07,
         type: 2}
-      propertyPath: coinClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 776df4ef8a35456409302312503579f7, type: 3}
-    - target: {fileID: 114064964567985648, guid: c1fbe1e66f1b44a3db382f3a3596cf07,
-        type: 2}
-      propertyPath: lifeClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2ae80ce6f4aedc145ae5d7cd466caec9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1fbe1e66f1b44a3db382f3a3596cf07, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &294267520 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1811346266388692, guid: c1fbe1e66f1b44a3db382f3a3596cf07,
-    type: 2}
-  m_PrefabInternal: {fileID: 294267519}
---- !u!114 &294267521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 294267520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd76a53f69d094bbe99c4a1a9504f37e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  maxVelocity: 4
 --- !u!1 &358264781
 GameObject:
   m_ObjectHideFlags: 0
