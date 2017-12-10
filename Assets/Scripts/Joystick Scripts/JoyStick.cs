@@ -1,16 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class JoyStick : MonoBehaviour {
+public class JoyStick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
+{
 
-	// Use this for initialization
-	void Start () {
-		
+	private PlayerJoyStick playerJoyStick;
+
+	void Start ()
+	{
+		playerJoyStick = GameObject.Find ("Player").GetComponent<PlayerJoyStick> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void OnPointerUp (PointerEventData data)
+	{
+		playerJoyStick.StopMoving ();
+	}
+
+	public void OnPointerDown (PointerEventData data)
+	{
+		if (gameObject.name == "Left") {
+			playerJoyStick.SetMoveLeft (true);
+		} else {
+			playerJoyStick.SetMoveLeft (false);
+		}
 	}
 }
