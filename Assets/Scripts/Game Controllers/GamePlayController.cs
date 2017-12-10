@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GamePlayController : MonoBehaviour
 {
@@ -46,7 +45,7 @@ public class GamePlayController : MonoBehaviour
 	IEnumerator GameOverLoadMainMenu ()
 	{
 		yield return new WaitForSeconds (3f);
-		SceneManager.LoadScene ("MainMenu");
+		SceneFader.instance.LoadLevel ("MainMenu");
 	}
 
 	public void PlayerDiedRestartGame ()
@@ -57,7 +56,7 @@ public class GamePlayController : MonoBehaviour
 	IEnumerator PlayerDiedRestart ()
 	{
 		yield return new WaitForSeconds (1f);
-		SceneManager.LoadScene ("Gameplay");
+		SceneFader.instance.LoadLevel ("Gameplay");
 	}
 
 	public void SetScore (int score)
@@ -91,7 +90,7 @@ public class GamePlayController : MonoBehaviour
 	public void QuitGame ()
 	{
 		Time.timeScale = 1f;
-		SceneManager.LoadScene ("MainMenu");
+		SceneFader.instance.LoadLevel ("MainMenu");
 	}
 
 	public void StartGame ()
