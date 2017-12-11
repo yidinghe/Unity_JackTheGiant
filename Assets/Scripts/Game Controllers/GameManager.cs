@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
 			}
 				
 		}
+
+		if (scene.name == "OptionsMenu") {
+			AdsController.instance.ShowBanner ();
+		} else if (scene.name == "HighScore") {
+			AdsController.instance.ShowInterstitial ();
+		}
 	}
 
 	public void CheckGameStatus (int score, int coinScore, int lifeScore)
